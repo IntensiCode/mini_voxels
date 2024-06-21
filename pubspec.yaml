@@ -1,0 +1,46 @@
+name: mini_voxels
+description: Mini Voxels - A Flutter Flame Game Experiment
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 0.0.0
+
+environment:
+  sdk: ^3.1.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dart_minilog: ^0.0.2
+  flame: ^1.18.0
+  flame_tiled: ^1.20.2
+  flutter_animate: ^4.5.0
+  flame_audio: ^2.10.2
+  stream_transform: ^2.1.0
+  get: ^4.6.6
+  signals_core: ^5.2.0
+  rxdart: ^0.27.7
+  list_operators: ^0.5.0
+  kart: ^1.0.8
+  collection: ^1.18.0
+  supercharged: ^2.1.1
+  kt_dart: ^1.1.0
+  dart_extensions_methods: ^2.0.0
+  audioplayers: ^6.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  test: ^1.24.9
+
+flutter:
+  assets:
+    - assets/audio/
+    - assets/audio/effect/
+    - assets/fonts/
+    - assets/images/
+    - assets/images/fonts/
+  shaders:
+    - assets/shaders/clouds.frag
+    - assets/shaders/voxel_scape.frag
