@@ -165,9 +165,11 @@ class GameScreen extends GameScriptComponent with HasAutoDisposeShortcuts, Keybo
 
     target_pitch = (100 - acceleration * 25).clamp(50, 110);
     if (h1 > h2) target_pitch += 25;
+    if (target_height < position.y ) target_pitch -= 25;
     pitch += (target_pitch - pitch) * 8 * dt;
 
-    position.y += (target_height - position.y) * 8 * dt;
+    final adapt_factor = target_height > position.y ? 8 : 4;
+    position.y += (target_height - position.y) * adapt_factor * dt;
     if (position.y < h2) {
       speed -= speed * 2 * dt;
       acceleration = 0;
