@@ -15,7 +15,8 @@ class Racer extends PositionComponent with AutoDispose, HasAutoDisposeShortcuts,
     for (final it in _racerLayers) {
       it.angle = radians;
     }
-    scale.y = 0.5;
+    scale.x = 2;
+    scale.y = 1;
   }
 
   @override

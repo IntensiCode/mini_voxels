@@ -8,6 +8,7 @@ import 'package:flame/extensions.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'components/mini_map.dart';
+import 'components/racer.dart';
 import 'components/voxel_scape.dart';
 import 'core/common.dart';
 import 'input/game_keys.dart';
@@ -17,8 +18,7 @@ import 'scripting/game_script.dart';
 class GameScreen extends GameScriptComponent with HasAutoDisposeShortcuts, KeyboardHandler, GameKeys {
   // late final Clouds _clouds;
   late final VoxelScape _voxelScape;
-
-  // late final Racer _racer;
+  late final Racer _racer;
 
   late final Uint8List _height_map;
   late final MiniMap _mini_map;
@@ -43,13 +43,14 @@ class GameScreen extends GameScriptComponent with HasAutoDisposeShortcuts, Keybo
       height_map: _height_map,
     ));
 
+    add(_racer = Racer());
+
     add(_mini_map = MiniMap(
       image: u_color_map,
       clip_size: 48,
       position: Vector2(gameWidth, 0),
       anchor: Anchor.topRight,
     ));
-    // add(_racer = Racer());
   }
 
   double height_at(double x, double y) {
@@ -85,6 +86,7 @@ class GameScreen extends GameScriptComponent with HasAutoDisposeShortcuts, Keybo
     _steering(dt);
     _voxelScape.player_angle = direction;
     _voxelScape.player_tilt = steering;
+    _racer.rotation = pi + steering / 10;
 
     _accelerating(dt);
     position.x = (position.x + cos(direction) * speed) % _voxelScape.map_size;
@@ -165,7 +167,7 @@ class GameScreen extends GameScriptComponent with HasAutoDisposeShortcuts, Keybo
 
     target_pitch = (100 - acceleration * 25).clamp(50, 110);
     if (h1 > h2) target_pitch += 25;
-    if (target_height < position.y ) target_pitch -= 25;
+    if (target_height < position.y) target_pitch -= 25;
     pitch += (target_pitch - pitch) * 8 * dt;
 
     final adapt_factor = target_height > position.y ? 8 : 4;
