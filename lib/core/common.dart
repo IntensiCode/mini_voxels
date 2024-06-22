@@ -11,8 +11,8 @@ bool dev = kDebugMode;
 
 const tps = 240;
 
-const double gameWidth = 320;
-const double gameHeight = 240;
+const double gameWidth = 640;
+const double gameHeight = 480;
 final Vector2 gameSize = Vector2(gameWidth, gameHeight);
 
 int gameWidth_ = gameWidth.toInt();

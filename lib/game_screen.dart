@@ -70,8 +70,8 @@ class GameScreen extends GameScriptComponent with HasAutoDisposeShortcuts, Keybo
   final acceleration_factor = 2.0;
   final max_acceleration = 4.0;
   final steer_factor = 6.0;
-  final max_steering = 4.0;
-  final max_speed = 1.0;
+  final max_steering = 2.0;
+  final max_speed = 0.25;
   final air_friction = 5.0;
 
   final full_circle = pi * 2;

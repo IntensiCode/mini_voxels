@@ -27,7 +27,7 @@ out vec4 fragColor;
 
 const float fov = PI / 3.0;
 const float h_fov = fov / 2.0;
-float scale_height = screen_height;
+float scale_height = 256;
 float delta_angle = h_fov / screen_width * 2;
 
 void main() {
